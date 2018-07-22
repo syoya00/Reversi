@@ -57,7 +57,19 @@ class PlayerAI {
           y = 187+int(random(4))*75;
         }
       }else if(level==3){
-        
+        int rNum = 64;
+        int setX;
+        int setY;
+
+        for(int i=0;i<8;i++){
+          for(int j=0;j<8;j++){
+            if(reversiMap.reversiMode[i][j]==0&&reversiMap.setCheck(i,j,1)==1){
+              
+              setX = 37+i*75;
+              setY = 37+j*75;
+            }
+          }
+        }
       }
 
       //x,yが何もない場所ならばc=-10にしてループをぬける
