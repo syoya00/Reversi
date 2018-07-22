@@ -1,4 +1,5 @@
 class ReversiMap {
+  //reversiMode 0=無 1=黒 -1=白
   int reversiMode [][] = new int [8][8];
   int reverserCount [] = new int [9];
   int movieCount [][] = new int [8][8];
@@ -79,7 +80,9 @@ class ReversiMap {
     }
 
     fill(0);
-    text("p1: " + p1 + "     p2: " + p2, 630, 400);
+    text("p1: " + p1, 630, 400);
+    fill(255);
+    text("p2: " + p2, 700, 400);
   }
   void reset() {
     for (int i=0; i<8; i++) {

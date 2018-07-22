@@ -12,6 +12,7 @@ class PlayerAI {
     cheat=0;
   }
   void thinking() {
+    //xとyに設置する座標を直接入れる
 
     for (int c=0; c>-1; c++) {
 
@@ -20,6 +21,7 @@ class PlayerAI {
         y = 37+int(random(8))*75;
       } else if (level == 2) {
 
+        //角をとる
         if (reversiMap.setCheck(0, 0, 1)==1&&reversiMap.reversiMode[0][0]==0) {
           x = 37;
           y = 37;
@@ -34,7 +36,9 @@ class PlayerAI {
           y = 37+7*75;
         }
 
+        //角をとれない場合
         if (c>100) {
+          //適当な箇所に置く
           for (int i=0; i<8; i++) {
             for (int j=0; j<8; j++) {
               if (reversiMap.reversiMode[i][j]==0&&reversiMap.setCheck(i, j, 1)==1) {
@@ -44,15 +48,21 @@ class PlayerAI {
             }
           }
         } else if (c>40) {
+          //a~h、3~6におく
           x = 187+int(random(4))*75;
           y = 37+int(random(8))*75;
         } else if (c>20) {
+          //c~f, 1~8におく
           x = 37+int(random(8))*75;
           y = 187+int(random(4))*75;
         }
+      }else if(level==3){
+        
       }
 
+      //x,yが何もない場所ならばc=-10にしてループをぬける
       if (reversiMap.setMap(x, y, turn)==1) {
+        //チート, 適当な箇所を無理矢理ひっくりかえす
         if (cheat == 1) {
           int did = 0;
           for (int k=0; k<8; k++) {
